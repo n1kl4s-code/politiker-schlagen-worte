@@ -30,7 +30,7 @@ function landingPageWordAnimation() {
     let randomIndex = Math.round(Math.random() * (wordArray.length - 1));
     let word = wordArray[randomIndex];
     let splitWord = word.split("");
-    landingPageWordPlaceholder.style.setProperty("background-image", `url("${word}.jpg")`);
+    landingPageWordPlaceholder.style.setProperty("background-image", `url("${word.toLowerCase()}.jpg")`);
     splitWord.forEach((char, i) => {
         setTimeout(() => {
             landingPageWordPlaceholder.textContent += char;
