@@ -1,27 +1,8 @@
 const hamburgerMenu = document.querySelector("#hamburger-icon");
-const sideNavBar = document.querySelector("#fixed-sidebar-menu");
 const landingPageWordPlaceholder = document.querySelector("#word");
 
-if (navigator.userAgentData.mobile) {
-    hamburgerMenu.addEventListener("touchstart", () => {
-        hamburgerMenu.classList.toggle("activated");
-        sideNavBar.classList.toggle("open");
-    });
-} else {
-    hamburgerMenu.addEventListener("click", () => {
-        hamburgerMenu.classList.toggle("activated");
-        sideNavBar.classList.toggle("open");
-    });
-};
-
-document.addEventListener("scroll", () => {
-    if (document.documentElement.scrollTop >= document.documentElement.scrollHeight / 10) {
-        document.querySelector("#fixed-top-bar").style.setProperty("min-height", 69.5 / 1.75 + "px");
-        document.querySelector("#fixed-top-bar").style.setProperty("max-height", 69.5 / 1.75 + "px");
-    } else {
-        document.querySelector("#fixed-top-bar").style.setProperty("min-height", 69.5 + "px");
-        document.querySelector("#fixed-top-bar").style.setProperty("max-height", 69.5 + "px");
-    };
+window.addEventListener("resize", () => {
+    location.reload();
 });
 
 const wordArray = ["Verantwortung", "Nachhaltigkeit", "Klimawandel", "Demokratie", "Rechtsextremismus", "Migrationspolitik", "Digitalisierung", "Verkehrswende", "Europapolitik"];
@@ -43,7 +24,7 @@ function landingPageWordAnimation() {
                             
                             if (j === splitWord.length - 1) {
                                 setTimeout(landingPageWordAnimation, 500);
-                            }
+                            };
                         }, 100 * j);
                     });
                 }, 2000);
