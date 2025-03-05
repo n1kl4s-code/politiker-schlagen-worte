@@ -3,36 +3,58 @@
     padding: 0;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 html, body {
-    color-scheme: dark;
+    background-color: rgb(40, 32, 44);
+    color: rgb(242, 77, 68);
     width: 100%;
     height: 100%;
     user-select: none;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
     font-family: system-ui;
 }
 
-#landing-page-background-image {
+#main-content {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transform-origin: center;
-    animation: landing-page-background-animation linear;
-    animation-timeline: view();
-    animation-range: exit;
-    opacity: 0.8;
 }
 
-@keyframes landing-page-background-animation {
-    to {
-        transform: scale(3);
-        opacity: 0;
-    }
+#bottom-bar {
+    width: 80%;
+    height: 10%;
+    margin: 0 auto;
 }
 
-#second-section {
-    position: relative;
+#messages {
     width: 100%;
-    height: 100%;
+    height: 90%;
+    background-color: blue;
+}
+
+#bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#user-message {
+    height: 30%;
+    width: 80%;
+    padding: 0.5rem;
+    border-radius: 100vw;
+    outline: none;
+    border: 0;
+    background-color: rgb(31, 25, 34);
+    color: rgb(242, 77, 68);
+}
+
+#send-user-message-btn {
+    aspect-ratio: 1/1;
+    height: 50%;
+    background-image: url("send.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
