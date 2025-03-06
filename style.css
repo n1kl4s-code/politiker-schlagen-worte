@@ -42,6 +42,7 @@ html, body {
     border: 0;
     background-color: rgb(31, 25, 34);
     color: rgb(242, 77, 68);
+    caret-color: rgb(242, 77, 68);
 }
 
 #send-user-message-btn {
