@@ -25,7 +25,7 @@ html, body {
 #messages {
     width: 96%;
     height: 90%;
-    /* background-color: blue; */
+    overflow-y: scroll;
 }
 
 #bottom-bar {
@@ -62,6 +62,7 @@ html, body {
     padding: 1%;
     margin-top: 0.5%;
     word-wrap: break-word;
+    white-space: pre-line;
 }
 
 #bot-message {
@@ -90,4 +91,51 @@ html, body {
 
 #bot-small-timestamp {
     text-align: right;
+}
+
+#bot-responding-message-placeholder {
+    clear: both;
+    color: white;
+    background-color: rgb(31, 25, 34);
+    width: 3%;
+    max-width: 30%;
+    height: 5%;
+    padding: 1%;
+    margin-top: 0.5%;
+    border-radius: 0rem 1rem 1rem 1rem;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#circle-1, #circle-2, #circle-3 {
+    aspect-ratio: 1/1;
+    height: 20%;
+    background-color: white;
+    border-radius: 100vw;
+}
+
+#circle-1 {
+    animation: response-anim 1s ease-in-out 0s infinite;
+}
+
+#circle-2 {
+    animation: response-anim 1s ease-in-out 0.25s infinite;
+}
+
+#circle-3 {
+    animation: response-anim 1s ease-in-out 0.5s infinite;
+}
+
+@keyframes response-anim {
+    0%, 100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    
+    50% {
+        transform: translateY(-100%);
+        opacity: 0.5;
+    }
 }
