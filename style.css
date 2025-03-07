@@ -81,7 +81,6 @@ html, body {
 #user-small-timestamp, #bot-small-timestamp {
     width: 100%;
     height: fit-content;
-    opacity: 0.75;
     font-size: xx-small;
     transform: translateY(50%);
 }
@@ -98,9 +97,10 @@ html, body {
     clear: both;
     color: white;
     background-color: rgb(31, 25, 34);
-    width: 3%;
-    max-width: 30%;
-    height: 5%;
+    min-height: 25px;
+    min-width: 40px;
+    max-height: 25px;
+    max-width: 40px;
     padding: 1%;
     margin-top: 0.5%;
     border-radius: 0rem 1rem 1rem 1rem;
@@ -112,7 +112,8 @@ html, body {
 
 #circle-1, #circle-2, #circle-3 {
     aspect-ratio: 1/1;
-    height: 20%;
+    height: 10px;
+    max-height: 10px;
     background-color: white;
     border-radius: 100vw;
 }
