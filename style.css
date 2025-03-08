@@ -23,7 +23,7 @@ html, body {
 }
 
 #messages {
-    width: 96%;
+    width: 98%;
     height: 90%;
     overflow-y: scroll;
 }
@@ -140,4 +140,19 @@ html, body {
         transform: translateY(-100%);
         opacity: 0.5;
     }
+}
+
+#smaller-text-joke {
+    font-size: x-small;
+}
+
+.bot-message-nav-link {
+    width: fit-content;
+    height: fit-content;
+    font-size: smaller;
+    border-radius: 100vw;
+    background-color: rgb(25, 19, 26);
+    padding: 0.5rem;
+    margin-top: 0.2rem;
+    display: inline-block;
 }

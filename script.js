@@ -1,10 +1,16 @@
 const dateForTitle = new Date();
-document.title = `${dateForTitle.getDate().toString().padStart(2, "0")}.${(dateForTitle.getMonth() + 1).toString().padStart(2, "0")}.${dateForTitle.getFullYear()}, ${dateForTitle.getHours().toString().padStart(2, "0")}:${dateForTitle.getMinutes().toString().padStart(2, "0")}`
+document.title = `PolitBot [${dateForTitle.getDate().toString().padStart(2, "0")}.${(dateForTitle.getMonth() + 1).toString().padStart(2, "0")}.${dateForTitle.getFullYear()}, ${dateForTitle.getHours().toString().padStart(2, "0")}:${dateForTitle.getMinutes().toString().padStart(2, "0")}]`;
 
 const mainContent = document.querySelector("#main-content");
 const userMessageContainer = document.querySelector("#user-message-field");
 const sendUserMessageButton = document.querySelector("#send-user-message-btn");
 const messageContainer = document.querySelector("#messages");
+const randomFavicon = Math.floor(Math.random() * 13);
+document.querySelectorAll("link").forEach(link => {
+    if (link.rel === "shortcut icon") {
+        link.href = `favicon-${randomFavicon}.png`;
+    };
+});
 
 const userMessages = {
     ":)": {
@@ -45,32 +51,36 @@ function sendMessage(msg) {
 };
 
 function respondToUser(userMessage) {
+    let response, botResponse, responseTime;
     const responseDiv = document.createElement("div");
     if (userMessage in userMessages) {
-        const response = userMessages[userMessage];
-        const botResponse = response.botResponse;
-        const responseTime = response.responseTimeInMilliseconds;
-        const circleDiv1 = document.createElement("div");
-        circleDiv1.id = "circle-1";
-        const circleDiv2 = document.createElement("div");
-        circleDiv2.id = "circle-2";
-        const circleDiv3 = document.createElement("div");
-        circleDiv3.id = "circle-3";
-        responseDiv.id = "bot-responding-message-placeholder";
-        responseDiv.appendChild(circleDiv1);
-        responseDiv.appendChild(circleDiv2);
-        responseDiv.appendChild(circleDiv3);
-        messageContainer.appendChild(responseDiv);
-        setTimeout(() => {
-            responseDiv.id = "bot-message";
-            responseDiv.innerHTML = botResponse;
-            const timestampDiv = document.createElement("div");
-            timestampDiv.id = "bot-small-timestamp";
-            timestampDiv.textContent = getFormattedTime();
-            responseDiv.appendChild(timestampDiv);
-            messageContainer.scrollTop = messageContainer.scrollHeight;
-        }, responseTime);
+        response = userMessages[userMessage];
+        botResponse = response.botResponse;
+        responseTime = response.responseTimeInMilliseconds;
+    } else {
+        botResponse = `Es tut mir leid, aber ich habe keine Antwort auf:\n"${userMessage}".`;
+        responseTime = 2000;
     };
+    const circleDiv1 = document.createElement("div");
+    circleDiv1.id = "circle-1";
+    const circleDiv2 = document.createElement("div");
+    circleDiv2.id = "circle-2";
+    const circleDiv3 = document.createElement("div");
+    circleDiv3.id = "circle-3";
+    responseDiv.id = "bot-responding-message-placeholder";
+    responseDiv.appendChild(circleDiv1);
+    responseDiv.appendChild(circleDiv2);
+    responseDiv.appendChild(circleDiv3);
+    messageContainer.appendChild(responseDiv);
+    setTimeout(() => {
+        responseDiv.id = "bot-message";
+        responseDiv.innerHTML = botResponse;
+        const timestampDiv = document.createElement("div");
+        timestampDiv.id = "bot-small-timestamp";
+        timestampDiv.textContent = getFormattedTime();
+        responseDiv.appendChild(timestampDiv);
+        messageContainer.scrollTop = messageContainer.scrollHeight;
+    }, responseTime);
 };
 
 function adaptToScreen() {
@@ -78,7 +88,10 @@ function adaptToScreen() {
     mainContent.style.setProperty("height", window.innerHeight + "px");
     userMessageContainer.style.setProperty("font-size", (((window.innerHeight * 0.1) * 0.4) * 0.4) + "px");
     userMessageContainer.style.setProperty("padding", `${window.innerHeight * 0.005}px ${window.innerHeight * 0.01}px`);
-    messageContainer.style.setProperty("padding", `0 ${window.innerWidth * 0.02}px`);
+    messageContainer.style.setProperty("padding", `0 ${window.innerWidth * 0.01}px`);
+    document.querySelectorAll(".bot-message-nav-link").forEach(link => {
+        console.log(link.textContent);
+    });
 };
 
 ["load", "resize"].forEach(event => {
