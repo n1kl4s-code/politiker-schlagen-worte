@@ -13,15 +13,28 @@ document.querySelectorAll("link").forEach(link => {
 });
 
 const userMessages = {
-    ":)": {
-        "botResponse": "Hey :)",
-        "responseTimeInMilliseconds": 1000
-    },
     "/audiotest": {
         "botResponse": `<audio controls><source src="music.mp3" type="audio/mp3"></audio>`,
         "responseTimeInMilliseconds": 2000
+    },
+    "/favicon": {
+        "botResponse": `
+        <img src="${document.querySelector('link[rel="icon"], link[rel="shortcut icon"]').href}" width="40%" height="40%">
+        <br>
+        <a href="${document.querySelector('link[rel="icon"], link[rel="shortcut icon"]').href}" download="${document.title.split(" ")[0]}_website_icon.png">Download</a>`,
+        "responseTimeInMilliseconds": 2000
+    },
+    "Viel reden, wenig sagen": {
+        "botResponse": `
+        "Viel reden, wenig sagen" ist ein in 2019 veröffentlichter Artikel von <strong>Oliver Georgi</strong>.<br>
+        In besagtem Artikel kritisiert Georgi die Sprechweise von Politikern, und verspottet sie zwischendurch.<br><br>
+        Hier sind Themen, die dir vielleicht weiterhelfen:<br>
+        <a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">Oliver Georgi</a>
+        <a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">zentrale Aussagen "Viel reden, wenig sagen"</a>
+        <a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">Kritik Georgis "Viel reden, wenig sagen"</a>`,
+        "responseTimeInMilliseconds": 2500
     }
-}
+};
 
 function getFormattedTime() {
     const date = new Date();
@@ -45,8 +58,8 @@ function sendMessage(msg) {
         userMessageDiv.appendChild(userMessageTimeStampDiv);
         messageContainer.appendChild(userMessageDiv);
         respondToUser(msg);
-        messageContainer.scrollTop = messageContainer.scrollHeight;
     };
+    messageContainer.scrollTop = messageContainer.scrollHeight;
     userMessageContainer.value = "";
 };
 
@@ -58,7 +71,7 @@ function respondToUser(userMessage) {
         botResponse = response.botResponse;
         responseTime = response.responseTimeInMilliseconds;
     } else {
-        botResponse = `Es tut mir leid, aber ich habe keine Antwort auf:\n"${userMessage}".`;
+        botResponse = `Es tut mir leid, aber ich habe noch keine Antwort auf:<br>"${userMessage}".`;
         responseTime = 2000;
     };
     const circleDiv1 = document.createElement("div");
