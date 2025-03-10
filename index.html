@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="shortcut icon" type="image/png">
+</head>
+<body class="dark">
+    <div id="main-content">
+        <div id="fixed-mode-toggle">
+            <div id="toggle-container">
+                <img src="night_sky.png" style="position: relative; object-fit: cover; object-position: center;" width="100%" height="100%" id="toggle-bg">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" id="dark-icon">
+                    <path d="m51.555 1.0391c0.78125 0 1.6367 0.023438 2.5625 0.070313 0.85937 0.046875 1.7148 0.10938 2.5625 0.19922 1.2578 0.12891 2.1719 1.2539 2.043 2.5117-0.078125 0.76953-0.53125 1.4102-1.1562 1.7656v0.003906c-5.4062 3.0312-9.918 7.457-13.043 12.789-3.0156 5.1406-4.7422 11.141-4.7422 17.555 0 9.6016 3.8906 18.293 10.184 24.582 6.293 6.293 14.98 10.184 24.582 10.184 3.5117 0 6.8984-0.52344 10.09-1.4883 3.3164-1.0039 6.4102-2.4805 9.207-4.3516 1.0508-0.70312 2.4688-0.42188 3.1719 0.62891 0.46094 0.68359 0.49609 1.5195 0.18359 2.2188-3.5977 9.2578-9.918 17.152-17.98 22.684-7.8711 5.4062-17.398 8.5664-27.668 8.5664-13.52 0-25.758-5.4805-34.621-14.34-8.8594-8.8594-14.34-21.098-14.34-34.621 0-13.52 5.4805-25.762 14.34-34.621 8.8633-8.8633 21.098-14.34 34.621-14.34z"/>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" id="light-icon">
+                    <path d="m75 50c0 13.785-11.215 25-25 25s-25-11.215-25-25 11.215-25 25-25 25 11.215 25 25zm-25-28.125c1.7266 0 3.125-1.3984 3.125-3.125v-9.375c0-1.7266-1.3984-3.125-3.125-3.125s-3.125 1.3984-3.125 3.125v9.375c0 1.7266 1.3984 3.125 3.125 3.125zm0 56.25c-1.7266 0-3.125 1.3984-3.125 3.125v9.375c0 1.7266 1.3984 3.125 3.125 3.125s3.125-1.3984 3.125-3.125v-9.375c0-1.7266-1.3984-3.125-3.125-3.125zm40.625-31.25h-9.375c-1.7266 0-3.125 1.3984-3.125 3.125s1.3984 3.125 3.125 3.125h9.375c1.7266 0 3.125-1.3984 3.125-3.125s-1.3984-3.125-3.125-3.125zm-68.75 3.125c0-1.7266-1.3984-3.125-3.125-3.125h-9.375c-1.7266 0-3.125 1.3984-3.125 3.125s1.3984 3.125 3.125 3.125h9.375c1.7266 0 3.125-1.3984 3.125-3.125zm50.223-18.973c0.80078 0 1.6016-0.30469 2.2109-0.91406l6.6289-6.6289c1.2227-1.2227 1.2227-3.1953 0-4.418s-3.1953-1.2227-4.418 0l-6.6289 6.6289c-1.2227 1.2227-1.2227 3.1953 0 4.418 0.60938 0.60938 1.4102 0.91406 2.2109 0.91406zm-46.406 38.863-6.6289 6.6289c-1.2227 1.2227-1.2227 3.1953 0 4.418 0.60938 0.60938 1.4102 0.91406 2.2109 0.91406 0.80078 0 1.6016-0.30469 2.2109-0.91406l6.6289-6.6289c1.2227-1.2227 1.2227-3.1953 0-4.418-1.2227-1.2227-3.1953-1.2227-4.418 0zm48.617 0c-1.2227-1.2227-3.1953-1.2227-4.418 0s-1.2227 3.1953 0 4.418l6.6289 6.6289c0.60938 0.60938 1.4102 0.91406 2.2109 0.91406s1.6016-0.30469 2.2109-0.91406c1.2227-1.2227 1.2227-3.1953 0-4.418l-6.6289-6.6289zm-48.617-39.777c0.60938 0.60938 1.4102 0.91406 2.2109 0.91406 0.80078 0 1.6016-0.30469 2.2109-0.91406 1.2227-1.2227 1.2227-3.1953 0-4.418l-6.6289-6.6289c-1.2227-1.2227-3.1953-1.2227-4.418 0s-1.2227 3.1953 0 4.418l6.6289 6.6289z"/>
+                </svg>
+            </div>
+        </div>
+        <div id="messages">
+            <div id="bot-message">Hey, ich bin PolitBot 😀<br><span id="smaller-text-joke">(Danke Google Gemini für den Namen)</span><br><br>Hier sind ein paar Themenvorschläge:<br><a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">Viel reden, wenig sagen</a>&nbsp;<a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">Plastikwörter</a>&nbsp;<a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">Konnotationspotenzial</a>&nbsp;<a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">Oliver Georgi</a>&nbsp;<a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">Uwe Pörksen</a>&nbsp;<a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">bester deutscher Dichter</a>&nbsp;<a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">Entwickler PolitBot</a>&nbsp;<a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">Wie funktioniert PolitBot?</a>&nbsp;<a class="bot-message-nav-link" onclick="sendMessage(this.textContent)">Erzähl mir einen Witz</a><div id="bot-small-timestamp">19:48</div></div>
+        </div>
+        <div id="bottom-bar">
+            <input type="text" id="user-message-field" autocomplete="off">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" id="send-user-message-btn">
+                <path d="m83 50c0-0.80078-0.39844-1.3984-1.1016-1.8008l-62-31.602c-0.69922-0.30078-1.5-0.30078-2.1016 0.10156-0.60156 0.39844-0.89844 1.1992-0.80078 1.8984l3.5 25.699c0.10156 0.80078 0.69922 1.5 1.3984 1.6992l16.602 5.1016-16.598 6.9023c-0.69922 0.19922-1.1992 0.89844-1.3008 1.6016l-3.5977 21.797c-0.10156 0.69922 0.19922 1.5 0.80078 1.8984 0.30078 0.19922 0.80078 0.39844 1.1992 0.39844 0.30078 0 0.60156-0.10156 0.89844-0.19922l62-31.602c0.70312-0.49609 1.1016-1.0938 1.1016-1.8945z"/>
+            </svg>
+        </div>
+    </div>
+</body>
+</html>
