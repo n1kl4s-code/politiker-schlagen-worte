@@ -76,12 +76,11 @@ html, body {
     clear: both;
     background-color: var(--secondary-bg);
     width: fit-content;
-    max-width: 30%;
+    max-width: 90%;
     height: fit-content;
     padding: 1%;
     margin-top: 0.5%;
     word-wrap: break-word;
-    transition: all 0.3s ease;
 }
 
 #bot-message {
@@ -113,7 +112,7 @@ html, body {
 
 #bot-responding-message-placeholder {
     clear: both;
-    background-color: rgb(31, 25, 34);
+    background-color: var(--secondary-bg);
     min-height: 25px;
     min-width: 40px;
     max-height: 25px;

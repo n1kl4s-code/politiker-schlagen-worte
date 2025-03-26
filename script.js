@@ -12,13 +12,6 @@ const userMessages = {
         "botResponse": `<audio controls><source src="music.mp3" type="audio/mp3"></audio>`,
         "responseTimeInMilliseconds": 2000
     },
-    "/favicon": {
-        "botResponse": `
-        <img src="${document.querySelector('link[rel="icon"], link[rel="shortcut icon"]').href}" width="40%" height="40%">
-        <br>
-        <a href="${document.querySelector('link[rel="icon"], link[rel="shortcut icon"]').href}" download="${document.title.split(" ")[0]}_website_icon.png">Download</a>`,
-        "responseTimeInMilliseconds": 2000
-    },
     "Viel reden, wenig sagen": {
         "botResponse": `
         "Viel reden, wenig sagen" ist ein in 2019 veröffentlichter Artikel von <strong>Oliver Georgi</strong>.<br>
@@ -36,6 +29,18 @@ const userMessages = {
         <a href="https://de.wikipedia.org/wiki/Spezial:ISBN-Suche/3411717769" target="_blank">Und täglich grüßt das Phrasenschwein</a><br>
         <a href="https://de.wikipedia.org/wiki/Spezial:ISBN-Suche/9783898212533" target="_blank">Das Groteske in Literatur und Werbung</a>`,
         "responseTimeInMilliseconds": 2500
+    },
+    'zentrale Aussagen "Viel reden, wenig sagen"': {
+        "botResponse": `...`,
+        "responseTimeInMilliseconds": 3000
+    },
+    'Warum bezeichnet Geogi die Begriffsverwendung von "Verantwortung" als "fein abgestufte Floskellehre" (Z. 17) und was kritisiert er daran?': {
+        "botResponse": `...`,
+        "responseTimeInMilliseconds": 3000
+    },
+    'Was kritisert Georgi am Begriff "Nachhaltigkeit" in der Politik?': {
+        "botResponse": `...`,
+        "responseTimeInMilliseconds": 3000
     }
 };
 
